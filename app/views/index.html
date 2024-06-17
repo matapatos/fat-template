@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block header %}
+<title>FAT boilerplate</title>
+<link href="{{url_for('resources',path='/css/index.css')}}" rel="stylesheet"/>
+{% endblock header %}
+
+{% block content %}
+
+<h1>Let's start coding 😊</h1>
+
+{% endblock content %}
+
+{% block scripts %}
+<script src="{{url_for('resources',path='/js/index.js')}}"></script>
+{% endblock scripts %}
