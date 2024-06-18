@@ -1,0 +1,24 @@
+{
+  "extends": ["@roots/bud/config/tsconfig.json"],
+  "compilerOptions": {
+    "allowJs": true,
+    "paths": {
+      "@src/*": ["./resources/*"],
+      "@js/*": ["./resources/js/*"],
+      "@css/*": ["./resources/css/*"],
+      "@static/*": ["./resources/static/*"]
+    },
+    "types": [
+      "@roots/bud",
+      "@roots/bud-babel",
+      "@roots/bud-tailwindcss",
+      "@roots/bud-postcss",
+      "@roots/bud-eslint",
+      "@types/node",
+      "webpack/module"
+    ]
+  },
+  "files": ["./bud.config.ts", "./types.d.ts"],
+  "include": ["./resources"],
+  "exclude": ["./node_modules", "./dist"]
+}
