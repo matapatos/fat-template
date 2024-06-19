@@ -15,18 +15,24 @@ def include_routers(app: FastAPI) -> None:
     app.include_router(api_router)
 
 
-def create_app() -> FastAPI:
-    app = FastAPI()
+def mount_dirs(app: FastAPI) -> None:
+    """
+    Mounts all file directories to be served
+    """
     current_dir = os.path.dirname(os.path.realpath(__file__))
-    app.mount(
-        "/resources", StaticFiles(directory=f"{current_dir}/dist"), name="resources"
-    )
+    app.mount("/css", StaticFiles(directory=f"{current_dir}/dist/css"), name="styles")
+    app.mount("/js", StaticFiles(directory=f"{current_dir}/dist/js"), name="scripts")
     app.mount(
         "/static",
         StaticFiles(directory=f"{current_dir}/resources/static"),
         name="static",
     )
 
+
+def create_app() -> FastAPI:
+    app = FastAPI()
+
+    mount_dirs(app)
     include_routers(app)
     return app
 

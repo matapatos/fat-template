@@ -8,7 +8,9 @@ export default async (bud: Bud) => {
     /**
      * App entrypoints
      */
-    .entry('app', ['@js/index.js', '@css/index.css']).html()
+    .entry({
+      index: ['@scripts/index.js', '@styles/index.css'],
+    })
     /**
      * Sets the JS/CSS resources to those
      */
@@ -24,12 +26,17 @@ export default async (bud: Bud) => {
     /**
      * Aliases to use within the app
      */
-    .alias('@css', bud.path('@src/css'))
-    .alias('@js', bud.path('@src/js'))
+    .alias('@styles', bud.path('@src/css'))
+    .alias('@scripts', bud.path('@src/js'))
     .alias('@static', bud.path('@src/static'))
     /**
      * Optimize for production
      */
-    .when(bud.isProduction, bud.minimize)
-    .when(bud.isProduction, bud.splitChunks)
+    .minimize()
+    .splitChunks()
+    /**
+     * Development server
+     */
+    .proxy('http://127.0.0.1:8000')
+    .serve('http://0.0.0.0:3000')
 };
