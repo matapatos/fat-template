@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block header %}
 <title>FAT boilerplate</title>
-<link href="{{url_for('styles',path='index.css')}}" rel="stylesheet"/>
+{% for style_url in bundle_urls_for('index.css') %}
+<link href="{{ style_url }}" rel="stylesheet"/>
+{% endfor %}
 {% endblock header %}
 
 {% block content %}
@@ -11,7 +13,7 @@
 {% endblock content %}
 
 {% block scripts %}
-{% for script_url in bundle_urls_for('index') %}
+{% for script_url in bundle_urls_for('index.js') %}
 <script src="{{ script_url }}"></script>
 {% endfor %}
 {% endblock scripts %}
