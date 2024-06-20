@@ -14,15 +14,16 @@ export default async (bud: Bud) => {
     /**
      * Sets the JS/CSS resources to those
      */
-    .setPath('@src', 'resources')
+    .setPath('@src', 'app/resources')
+    .setPath('@dist', 'app/dist')
     /**
      * Watch for file changes in views directory
      */
-    .watch(['views'])
+    .watch(['app/views'])
     /**
      * Where static files resides
      */
-    .assets('static')
+    .assets('@static')
     /**
      * Aliases to use within the app
      */

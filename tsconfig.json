@@ -3,10 +3,10 @@
   "compilerOptions": {
     "allowJs": true,
     "paths": {
-      "@src/*": ["./resources/*"],
-      "@js/*": ["./resources/js/*"],
-      "@css/*": ["./resources/css/*"],
-      "@static/*": ["./resources/static/*"]
+      "@src/*": ["./app/resources/*"],
+      "@scripts/*": ["./app/resources/js/*"],
+      "@styles/*": ["./app/resources/css/*"],
+      "@static/*": ["./app/resources/static/*"]
     },
     "types": [
       "@roots/bud",
@@ -19,6 +19,6 @@
     ]
   },
   "files": ["./bud.config.ts", "./types.d.ts"],
-  "include": ["./resources"],
-  "exclude": ["./node_modules", "./dist"]
+  "include": ["./app/resources"],
+  "exclude": ["./node_modules", "./app/dist", "./tests"]
 }
