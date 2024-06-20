@@ -16,7 +16,9 @@
   ],
   "scripts": {
     "build": "bud build production",
-    "dev": "bud build development"
+    "dev": "bud build development",
+    "lint": "bud lint js",
+    "format": "bud format"
   },
   "devDependencies": {
     "@roots/bud": "^6.21.0",
@@ -28,6 +30,7 @@
     "@roots/eslint-config": "^6.21.0"
   },
   "dependencies": {
+    "alpinejs": "^3.14.1",
     "tailwindcss": "^3.4.4"
   }
 }

@@ -1,9 +1,12 @@
+import Alpine from 'alpinejs';
 
-console.log("Working");
+window.Alpine = Alpine;
+
+Alpine.start();
 
 /**
  * Hot reload (can be removed by React and Vue users)
  */
 if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept(console.error)
+  import.meta.webpackHot.accept(console.error);
 }
