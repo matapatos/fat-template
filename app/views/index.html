@@ -10,13 +10,14 @@
 
 <div class="bg-white py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
-		<div class="mx-auto max-w-3xl lg:text-center" x-data="{ open: false }">
+		<div class="mx-auto max-w-3xl lg:text-center" x-data="{ open: undefined }">
 			<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Let's start coding 😊?</p>
 			<span class="mt-6 isolate inline-flex rounded-md shadow-sm">
 				<button @click="open=true" type="button" class="relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10">Yes</button>
 				<button @click="open=false" type="button" class="relative -ml-px inline-flex items-center rounded-r-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10">No</button>
 			</span>
 			<p x-show="open" class="mt-6 text-lg leading-8 text-gray-600">Make it work, make it beautiful and make it fast with FastAPI + AlpineJS + TailwindCSS.</p>
+			<p x-show="open===false" class="mt-6 text-lg leading-8 text-gray-600">No worries, coding isn't for everyone... just like having fun! 😉</p>
 		</div>
 	</div>
 </div>
