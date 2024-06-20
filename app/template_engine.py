@@ -17,7 +17,7 @@ def bundle_urls_for(name: str) -> list[str]:
             f"Missing dot in bundle name. Expected something like '{name}.js' or '{name}.css' but got '{name}'"
         )
 
-    name, type_ = name.split(".")
+    name, type_ = name.split(".", 1)
     if "bundle_entrypoints" not in templates.env.globals:
         with open(configs.bundle_entrypoints_file, "rb") as file:
             templates.env.globals.update(bundle_entrypoints=json.load(file))

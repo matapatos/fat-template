@@ -9,7 +9,7 @@ export default async (bud: Bud) => {
      * App entrypoints
      */
     .entry({
-      index: ['@scripts/index.js', '@styles/index.css'],
+      app: ['@scripts/app.js', '@styles/app.css'],
     })
     /**
      * Sets the JS/CSS resources to those
