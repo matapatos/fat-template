@@ -10,5 +10,5 @@ router = APIRouter(tags=["Pages"], default_response_class=HTMLResponse)
 
 
 @router.get("/")
-def index(request: Request):
+def homepage(request: Request):
     return templates.TemplateResponse(request=request, name="index.html")
