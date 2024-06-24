@@ -19,7 +19,7 @@ export default async (bud: Bud) => {
     /**
      * Watch for file changes in views directory
      */
-    .watch(['app/views'])
+    .watch(['app/resources/views'])
     /**
      * Where static files resides
      */
