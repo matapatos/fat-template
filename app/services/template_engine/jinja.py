@@ -1,5 +1,5 @@
 """
-Creates template engine that renders HTML pages
+Jinja template engine to render HTML pages
 """
 
 import json
@@ -48,7 +48,7 @@ class JinjaTemplateEngine:
             )
 
         name, type_ = name.split(".", 1)
-        if not self._request.app.state.bundle_entrypoints:
+        if not hasattr(self._request.app.state, "bundle_entrypoints"):
             with open(configs.bundle_entrypoints_filepath, "rb") as file:
                 self._request.app.state.bundle_entrypoints = json.load(file)
 

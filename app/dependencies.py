@@ -18,7 +18,7 @@ async def get_template_engine(request: Request) -> Renderable:
     return JinjaTemplateEngine(
         request=request,
         templates_dir=configs.views_dir,
-        bundle_entrypoints_filepath=configs.bundle_entrypoints_file,
+        bundle_entrypoints_filepath=configs.bundle_entrypoints_filepath,
     )
 
 

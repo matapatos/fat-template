@@ -2,7 +2,7 @@
 
 import os
 
-from dependencies import TemplateEngine
+from dependencies import get_template_engine
 from fastapi import FastAPI, Request
 from fastapi.exception_handlers import (
     http_exception_handler as original_http_exception_handler,
@@ -50,8 +50,10 @@ app = create_app()
 
 
 @app.exception_handler(StarletteHTTPException)
+@app.exception_handler(Exception)
 async def html_exception_handler(
-    request: Request, exc: StarletteHTTPException
+    request: Request,
+    exc,
 ):
     """
     Error handler that decides if either an HTML or JSON response should be rendered
@@ -60,4 +62,6 @@ async def html_exception_handler(
     if "api" in endpoint_parts:
         return await original_http_exception_handler(request, exc)
 
+    # Dependencies don't work in exception handlers
+    template_engine = await get_template_engine(request)
     return template_engine.render(name="error.html", error=exc)

@@ -29,4 +29,4 @@ test\:cov:
 format:
 	poetry run isort . && black .
 
-.PHONY: install install\:prod dev prod test test\:lint test\:run test\:cov format
+.PHONY: install install\:prod dev\:frontend dev\:backend prod test test\:lint test\:run test\:cov format
