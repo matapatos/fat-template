@@ -51,10 +51,7 @@ app = create_app()
 
 @app.exception_handler(StarletteHTTPException)
 @app.exception_handler(Exception)
-async def html_exception_handler(
-    request: Request,
-    exc,
-):
+async def html_exception_handler(request: Request, exc):
     """
     Error handler that decides if either an HTML or JSON response should be rendered
     """
