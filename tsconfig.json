@@ -20,5 +20,5 @@
   },
   "files": ["./bud.config.ts", "./types.d.ts"],
   "include": ["./app/resources"],
-  "exclude": ["./node_modules", "./app/dist", "./tests"]
+  "exclude": ["./node_modules", "./app/dist"]
 }

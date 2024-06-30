@@ -18,8 +18,7 @@
     "build": "bud build production",
     "dev": "bud build development",
     "lint": "bud lint js",
-    "format": "bud format",
-    "test": "jest"
+    "format": "bud format"
   },
   "devDependencies": {
     "@roots/bud": "^6.23.0",
@@ -28,8 +27,7 @@
     "@roots/bud-postcss": "^6.21.0",
     "@roots/bud-prettier": "^6.21.0",
     "@roots/bud-tailwindcss": "^6.21.0",
-    "@roots/eslint-config": "^6.21.0",
-    "jest": "^29.7.0"
+    "@roots/eslint-config": "^6.21.0"
   },
   "dependencies": {
     "alpinejs": "^3.14.1",
