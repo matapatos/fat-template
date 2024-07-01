@@ -12,4 +12,4 @@ router = APIRouter(tags=["Pages"], default_response_class=HTMLResponse)
 @router.get("/")
 def homepage(template_engine: TemplateEngine):
     """Example of a page endpoint"""
-    return template_engine.render(name="index.html")
+    return template_engine.render(name="index.html", title="FAT template")

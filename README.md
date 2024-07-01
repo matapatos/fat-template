@@ -1,2 +1,3 @@
-# fat-boilerplate
-Up and running full-stack boilerplate with FastAPI + AlpineJS + TailwindCSS
+# FAT template
+
+Up and running full-stack template with FastAPI + AlpineJS + TailwindCSS

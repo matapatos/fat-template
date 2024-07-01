@@ -1,6 +1,5 @@
-{% extends 'base.html' %} {% block header %}
-<title>FAT boilerplate</title>
-{% for style_url in bundle_urls_for('app.css') %}
+{% extends 'base.html' %} {% block header %} {% for style_url in
+bundle_urls_for('app.css') %}
 <link href="{{ style_url }}" rel="stylesheet" />
 {% endfor %} {% endblock header %} {% block content %}
 
