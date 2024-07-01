@@ -2,6 +2,7 @@
 
 import os
 
+from configs import configs
 from dependencies import get_template_engine
 from fastapi import FastAPI, Request
 from fastapi.exception_handlers import (
@@ -16,7 +17,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 def include_routers(app_inst: FastAPI) -> None:
     """Registers all app routers"""
     app_inst.include_router(pages_router)
-    app_inst.include_router(api_router)
+    app_inst.include_router(api_router, prefix=f"/{configs.api_version}/api")
 
 
 def mount_dirs(app_inst: FastAPI) -> None:
@@ -61,4 +62,6 @@ async def html_exception_handler(request: Request, exc):
 
     # Dependencies don't work in exception handlers
     template_engine = await get_template_engine(request)
-    return template_engine.render(name="error.html", error=exc)
+    return template_engine.render(
+        name="error.html", error=exc, title="Something went wrong - FAT template"
+    )
