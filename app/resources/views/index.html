@@ -30,11 +30,16 @@ bundle_urls_for('app.css') %}
           No
         </button>
       </span>
-      <p x-show="open" class="mt-6 text-lg leading-8 text-gray-600">
+      <p
+        data-testid="yes-text"
+        x-show="open"
+        class="mt-6 text-lg leading-8 text-gray-600"
+      >
         Make it work, make it beautiful and make it fast with FastAPI +
         AlpineJS + TailwindCSS.
       </p>
       <p
+        data-testid="no-text"
         x-show="open===false"
         class="mt-6 text-lg leading-8 text-gray-600"
       >
