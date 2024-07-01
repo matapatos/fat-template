@@ -25,7 +25,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
-pythonpath = ["src"]
+pythonpath = ["app"]
 testpaths = ["tests"]
 
 [tool.isort]
