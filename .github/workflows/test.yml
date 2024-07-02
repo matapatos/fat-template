@@ -1,0 +1,56 @@
+name: Tests
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set Node.js 16.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+
+    - name: Install frontend dependencies
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: install # will run `yarn install` command
+
+    - name: Build frontend dependencies
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: build
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+
+    - name: Install poetry
+      run: pip install poetry
+
+    - name: Install backend dependencies
+      run: poetry install --no-root
+
+    - name: Ensure browsers are installed
+      run: poetry run playwright install --with-deps
+
+    - name: Run unit tests
+      run: poetry run pytest tests/unit
+
+    - name: Run integration tests
+      run: poetry run pytest tests/integration
+
+    - name: Run e2e tests
+      run: poetry run pytest tests/e2e
+
+    - uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: playwright-traces
+        path: test-results/
