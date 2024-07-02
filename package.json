@@ -3,7 +3,7 @@
   "$schema": "https://bud.js.org/bud.package.json",
   "description": "Full-Stack boilerplate with FastAPI + AlpineJS + TailwindCSS",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "repository": {
     "type": "git",
