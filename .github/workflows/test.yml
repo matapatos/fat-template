@@ -37,20 +37,22 @@ jobs:
     - name: Install backend dependencies
       run: poetry install --no-root
 
-    - name: Ensure browsers are installed
-      run: poetry run playwright install --with-deps
-
     - name: Run unit tests
       run: poetry run pytest tests/unit
 
     - name: Run integration tests
       run: poetry run pytest tests/integration
 
-    - name: Run e2e tests
-      run: poetry run pytest tests/e2e
+    # After a succefull deployment e2e tests can be run
 
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-traces
-        path: test-results/
+    # - name: Ensure browsers are installed
+    #   run: poetry run playwright install --with-deps
+
+    # - name: Run e2e tests
+    #   run: poetry run pytest tests/e2e --base-url <APPLICATION_URL>
+
+    # - uses: actions/upload-artifact@v4
+    #   if: ${{ !cancelled() }}
+    #   with:
+    #     name: playwright-traces
+    #     path: test-results/
