@@ -33,7 +33,7 @@ test\:e2e:
 	poetry run pytest tests/e2e --base-url http://127.0.0.1:8000
 
 test\:cov:
-	poetry run coverage run --module pytest . && coverage report --show-missing
+	poetry run coverage run --module pytest . --base-url http://127.0.0.1:8000 && coverage report --show-missing
 
 format:
 	poetry run isort . && black .

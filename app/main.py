@@ -17,7 +17,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 def include_routers(app_inst: FastAPI) -> None:
     """Registers all app routers"""
     app_inst.include_router(pages_router)
-    app_inst.include_router(api_router, prefix=f"/{configs.api_version}/api")
+    app_inst.include_router(api_router, prefix=f"/api/{configs.api_version}")
 
 
 def mount_dirs(app_inst: FastAPI) -> None:
