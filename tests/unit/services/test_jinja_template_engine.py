@@ -58,7 +58,7 @@ def test_bundle_urls_for(mocked_open: MagicMock):
         templates_dir=Path("/mock-dir"),
         bundle_entrypoints_filepath=Path("/filepath/entrypoints.json"),
     )
-    assert template_engine._bundle_urls_for("test.js") == ["test.js", "test2.js"]
+    assert template_engine._bundle_urls_for("test.js") == ["/test.js", "/test2.js"]
     assert mocked_open.called
 
 
@@ -76,7 +76,7 @@ def test_bundle_urls_for_doesnt_reload():
         templates_dir=Path("/mock-dir"),
         bundle_entrypoints_filepath=Path("/filepath/entrypoints.json"),
     )
-    assert template_engine._bundle_urls_for("test.js") == ["test.js", "test2.js"]
+    assert template_engine._bundle_urls_for("test.js") == ["/test.js", "/test2.js"]
 
 
 @pytest.mark.parametrize("bundle_name", ["unknown.js", "test.txt"])

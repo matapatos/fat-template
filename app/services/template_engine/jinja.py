@@ -53,4 +53,5 @@ class JinjaTemplateEngine:
                 self._request.app.state.bundle_entrypoints = json.load(file)
 
         entrypoints = self._request.app.state.bundle_entrypoints
-        return entrypoints.get(name, {}).get(type_, [])
+        bundle_entrypoints = entrypoints.get(name, {}).get(type_, [])
+        return [f"/{bundle}" for bundle in bundle_entrypoints]
