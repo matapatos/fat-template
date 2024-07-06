@@ -5,59 +5,52 @@ on:
   pull_request:
     branches: [ main ]
 jobs:
-  test:
+  tests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
+    strategy:
+      fail-fast: true
+      matrix:
+        python: [ '3.10', '3.11', '3.12' ]
+        node: [ '18.x' ]
 
-    - name: Set Node.js 18.x
+    name: Python ^${{ matrix.python }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18.x
-
-    - name: Install frontend dependencies
-      uses: borales/actions-yarn@v4
-      with:
-        cmd: install # will run `yarn install` command
-
-    - name: Build frontend dependencies
-      uses: borales/actions-yarn@v4
-      with:
-        cmd: build
+        node-version: ${{ matrix.node }}
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.12'
+        python-version: ${{ matrix.python }}
 
-    - name: Install poetry
-      run: pip install poetry
+    - name: Install dependencies
+      run: make install
 
-    - name: Install backend dependencies
-      run: poetry install --no-root
+    - name: Build resources
+      run: make build
 
-    - name: Run unit and integration tests
-      run: poetry run coverage run --module pytest tests/unit tests/integration
+    - name: Lint
+      run: make lint
+
+    - name: Run unit tests
+      run: make test:unit
+
+    - name: Run integration tests
+      run: make test:integration
 
     # After a succefull deployment e2e tests can be run
 
-    # - name: Ensure browsers are installed
-    #   run: poetry run playwright install --with-deps
-
     # - name: Run e2e tests
-    #   run: poetry run pytest tests/e2e --base-url <APPLICATION_URL>
+    #   run: make test:e2e
 
     # - uses: actions/upload-artifact@v4
     #   if: ${{ !cancelled() }}
     #   with:
     #     name: playwright-traces
     #     path: test-results/
-
-    - name: Code coverage report
-      run: poetry run coverage report --show-missing
-
-    - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v4.0.1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}

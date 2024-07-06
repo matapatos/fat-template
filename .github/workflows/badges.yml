@@ -1,0 +1,52 @@
+name: Badges
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  badges:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        python: [ '3.10' ]
+        node: [ '18.x' ]
+
+    name: Python ^${{ matrix.python }} | Node.js ^${{ matrix.node }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install dependencies
+        run: make install
+
+      - name: Build resources
+        run: make build
+
+      - name: Code coverage
+        run: make test:cov
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          directory: tests/coverage
+          files: coverage.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
