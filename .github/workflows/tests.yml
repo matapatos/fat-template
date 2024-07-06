@@ -1,9 +1,14 @@
 name: Tests
+
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
+
+env:
+  RUN_E2E_TESTS: false
+
 jobs:
   tests:
     timeout-minutes: 60

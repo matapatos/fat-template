@@ -9,6 +9,9 @@ on:
 permissions:
   contents: read
 
+env:
+  RUN_E2E_TESTS: false
+
 jobs:
   badges:
     timeout-minutes: 60

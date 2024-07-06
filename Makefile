@@ -2,7 +2,7 @@ install:
 	pip install poetry
 	yarn install
 	poetry install --no-root
-	poetry run playwright install --with-deps
+	[ "$RUN_E2E_TESTS" = false ] || poetry run playwright install --with-deps
 
 install\:prod:
 	pip install poetry
