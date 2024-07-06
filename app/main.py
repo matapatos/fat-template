@@ -62,6 +62,8 @@ async def html_exception_handler(request: Request, exc):
 
     # Dependencies don't work in exception handlers
     template_engine = await get_template_engine(request)
-    return template_engine.render(
+    response = template_engine.render(
         name="error.html", error=exc, title="Something went wrong - FAT template"
     )
+    response.status_code = getattr(exc, "status_code", 500)
+    return response

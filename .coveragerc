@@ -1,2 +1,3 @@
 [run]
-concurrency = thread,greenlet
+concurrency = thread
+omit = tests/*

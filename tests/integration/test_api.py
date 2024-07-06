@@ -17,4 +17,4 @@ def test_not_found():
     """Tests api_example endpoint"""
     response = client.get("/api/v1/not-found")
     assert response.status_code == 404
-    assert response.json() == {'detail': 'Not Found'}
+    assert response.json() == {"detail": "Not Found"}
