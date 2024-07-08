@@ -24,20 +24,6 @@
 - AlpineJS
 - TailwindCSS
 
-## Installation
-
-For development:
-
-```bash
-make install
-```
-
-For production:
-
-```bash
-make install:prod
-```
-
 ## Development
 
 ### Installation
