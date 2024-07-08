@@ -27,8 +27,8 @@ export default async (bud: Bud) => {
     /**
      * Aliases to use within the app
      */
-    .alias('@styles', bud.path('@src/css'))
-    .alias('@scripts', bud.path('@src/js'))
+    .alias('@styles', bud.path('@src/styles'))
+    .alias('@scripts', bud.path('@src/scripts'))
     .alias('@static', bud.path('@src/static'))
     /**
      * Optimize for production

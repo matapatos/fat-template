@@ -4,8 +4,8 @@
     "allowJs": true,
     "paths": {
       "@src/*": ["./app/resources/*"],
-      "@scripts/*": ["./app/resources/js/*"],
-      "@styles/*": ["./app/resources/css/*"],
+      "@scripts/*": ["./app/resources/scripts/*"],
+      "@styles/*": ["./app/resources/styles/*"],
       "@static/*": ["./app/resources/static/*"]
     },
     "types": [

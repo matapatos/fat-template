@@ -1,5 +1,5 @@
 export default {
-  content: ['./app/resources/js/*.{js,ts}', './app/resources/views/**/*.html'],
+  content: ['./app/resources/scripts/*.{js,ts}', './app/resources/views/**/*.html'],
   theme: {
     extend: {
       colors: {},
