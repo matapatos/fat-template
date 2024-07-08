@@ -12,9 +12,9 @@
 ## Features
 
 - Hot reloading dev server - no need to refresh the browser for viewing changes
-- Javascript and Typescript support
+- JavaScript and TypeScript support
 - [FastAPI](https://fastapi.tiangolo.com/)
-- [AlpineJS](https://alpinejs.dev/) - you can swap this with [React](https://bud.js.org/learn/getting-started/adding-react) or [VueJS](https://bud.js.org/learn/getting-started/adding-vue) if you prefer
+- [AlpineJS](https://alpinejs.dev/)
 - [TailwindCSS](https://tailwindcss.com/)
 
 ## Requirements
