@@ -1,5 +1,5 @@
 """
-Holds endpoints for HTML pages 
+Holds endpoints for HTML pages
 """
 
 from dependencies import TemplateEngine

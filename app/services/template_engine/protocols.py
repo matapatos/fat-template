@@ -3,7 +3,6 @@
 from typing import Protocol
 
 
-# pylint: disable=too-few-public-methods
 class Renderable(Protocol):
     """Used to render HTML pages"""
 

@@ -10,7 +10,6 @@ from fastapi import HTTPException, Request
 from fastapi.templating import Jinja2Templates
 
 
-# pylint: disable=too-few-public-methods
 class JinjaTemplateEngine:
     """Renders HTML templates using Jinja2"""
 

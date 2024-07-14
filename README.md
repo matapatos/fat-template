@@ -23,6 +23,7 @@
 - FastAPI
 - AlpineJS
 - TailwindCSS
+- NodeJS ^18
 
 ## Development
 
@@ -32,16 +33,16 @@
 make install
 ```
 
-### Backend server
-
-```bash
-make dev:backend
-```
-
 ### Frontend server
 
 ```bash
 make dev:frontend
+```
+
+### Backend server
+
+```bash
+make dev:backend
 ```
 
 ## Production
