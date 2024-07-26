@@ -1,5 +1,6 @@
 # FAT template
 
+<img src="https://raw.githubusercontent.com/matapatos/fat-template/main/app/resources/static/fat-template-wallpaper.gif" alt="FAT template in action">
 <p align="center">
     <a href="https://github.com/matapatos/fat-template/actions"><img alt="GitHub Actions Workflow Status (main)" src="https://img.shields.io/github/actions/workflow/status/matapatos/fat-template/tests.yml"></a>
     <a href="https://codecov.io/gh/matapatos/fat-template" ><img alt="Code Coverage" src="https://img.shields.io/codecov/c/github/matapatos/fat-template/main"></a>
